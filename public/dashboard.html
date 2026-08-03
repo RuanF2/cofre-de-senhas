@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cofre — meus acessos</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="corpo-dashboard">
+
+<header class="topo">
+  <div class="marca marca-topo">
+    <svg class="marca-icone" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="6" y="20" width="36" height="24" rx="3" stroke="currentColor" stroke-width="2.5"/>
+      <path d="M14 20V14C14 8.5 18.5 4 24 4C29.5 4 34 8.5 34 14V20" stroke="currentColor" stroke-width="2.5"/>
+      <circle cx="24" cy="30" r="3.5" fill="currentColor"/>
+      <path d="M24 33.5V38" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+    </svg>
+    <span class="marca-texto">COFRE</span>
+  </div>
+  <button id="botaoSair" class="botao-fantasma" type="button">Sair</button>
+</header>
+
+<main class="area-dashboard">
+  <div class="cabecalho-dashboard">
+    <div>
+      <h1>Seus acessos</h1>
+      <p class="subtexto" id="contagemSenhas">Carregando…</p>
+    </div>
+    <button id="botaoNovo" class="botao-principal botao-compacto" type="button">
+      <span>+ Novo acesso</span>
+    </button>
+  </div>
+
+  <div class="campo-busca">
+    <input type="text" id="buscaSite" placeholder="Buscar por site…">
+  </div>
+
+  <p class="linha-status" id="mensagemDashboard" role="status"></p>
+
+  <ul class="lista-cofre" id="listaCofre"></ul>
+
+  <div class="vazio oculto" id="estadoVazio">
+    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="6" y="20" width="36" height="24" rx="3" stroke="currentColor" stroke-width="2"/>
+      <path d="M14 20V14C14 8.5 18.5 4 24 4C29.5 4 34 8.5 34 14V20" stroke="currentColor" stroke-width="2"/>
+    </svg>
+    <p>Seu cofre está vazio</p>
+    <span>Guarde o primeiro acesso pra começar</span>
+  </div>
+</main>
+
+<!-- Modal de novo acesso -->
+<div class="sobreposicao oculto" id="modalNovo">
+  <div class="modal">
+    <div class="modal-cabecalho">
+      <h2>Novo acesso</h2>
+      <button class="botao-fechar" id="fecharModal" type="button" aria-label="Fechar">&times;</button>
+    </div>
+    <form id="formNovaSenha" class="form-auth">
+      <label class="campo">
+        <span>Site ou serviço</span>
+        <input type="text" name="site" placeholder="Instagram, Gmail, Netflix…" required>
+      </label>
+      <label class="campo">
+        <span>Usuário / e-mail</span>
+        <input type="text" name="usuario_site" placeholder="usuario@exemplo.com" required>
+      </label>
+      <label class="campo">
+        <span>Senha</span>
+        <div class="campo-com-icone">
+          <input type="password" name="senha_site" id="inputSenhaNova" placeholder="Senha do site" required>
+          <button type="button" class="botao-icone" id="gerarSenha" title="Gerar senha forte">⚡</button>
+        </div>
+      </label>
+      <p class="linha-status" id="mensagemModal" role="status"></p>
+      <button type="submit" class="botao-principal">
+        <span>Guardar no cofre</span>
+      </button>
+    </form>
+  </div>
+</div>
+
+<template id="templateItemCofre">
+  <li class="item-cofre">
+    <div class="item-icone" data-inicial></div>
+    <div class="item-info">
+      <p class="item-site" data-site></p>
+      <p class="item-usuario" data-usuario></p>
+    </div>
+    <div class="item-senha">
+      <span class="item-senha-texto" data-senha-texto>••••••••</span>
+      <button class="botao-icone" data-botao-revelar title="Mostrar senha">👁</button>
+      <button class="botao-icone" data-botao-copiar title="Copiar senha">⧉</button>
+      <button class="botao-icone botao-perigo" data-botao-excluir title="Excluir">🗑</button>
+    </div>
+  </li>
+</template>
+
+<script src="dashboard.js"></script>
+</body>
+</html>
