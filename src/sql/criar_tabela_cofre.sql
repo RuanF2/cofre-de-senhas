@@ -1,4 +1,3 @@
--- Rode isso no pgAdmin (Query Tool), no banco api_autenticacao
 
 CREATE TABLE senhas_cofre (
   id SERIAL PRIMARY KEY,

@@ -16,7 +16,6 @@ app.use(session({secret: process.env.SESSION_SECRET, resave: false, saveUninitia
 app.use(passport.initialize())
 app.use(passport.session())
 
-// Serve o frontend (public/index.html, dashboard.html, style.css, auth.js, dashboard.js)
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
 app.use('/auth', authRoutes);

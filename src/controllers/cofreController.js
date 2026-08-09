@@ -1,10 +1,9 @@
 const pool = require('../db');
 const { criptografar, descriptografar } = require('../utils/crypto');
 
-// Cria uma nova senha guardada no cofre, vinculada ao usuário logado
 async function criarSenha(req, res) {
     const { site, usuario_site, senha_site } = req.body;
-    const usuarioId = req.usuarioId; // isso vem do middleware verificarToken (veremos como conectar isso)
+    const usuarioId = req.usuarioId;
 
     if (!site || !usuario_site || !senha_site) {
         res.status(400).json({ mensagem: 'Preencha site, usuario_site e senha_site' });
@@ -21,7 +20,6 @@ async function criarSenha(req, res) {
     res.status(201).json({ mensagem: 'Senha salva com sucesso', senha: resultado.rows[0] });
 }
 
-// Lista todas as senhas do usuário logado, SEM revelar o valor (só metadados)
 async function listarSenhas(req, res) {
     const usuarioId = req.usuarioId;
 
@@ -33,7 +31,6 @@ async function listarSenhas(req, res) {
     res.status(200).json({ senhas: resultado.rows });
 }
 
-// Revela (descriptografa) uma senha específica, verificando que pertence ao usuário logado
 async function revelarSenha(req, res) {
     const usuarioId = req.usuarioId;
     const { id } = req.params;
@@ -54,7 +51,6 @@ async function revelarSenha(req, res) {
     res.status(200).json({ senha: senhaOriginal });
 }
 
-// Remove uma senha do cofre
 async function excluirSenha(req, res) {
     const usuarioId = req.usuarioId;
     const { id } = req.params;
