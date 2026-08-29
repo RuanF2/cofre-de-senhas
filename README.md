@@ -1,4 +1,4 @@
-# 🔐 Cofre de Senhas
+## 🔐 Cofre de Senhas
 
 API de autenticação e gerenciador de senhas pessoal, construído em Node.js com PostgreSQL. Projeto desenvolvido para estudo e portfólio, cobrindo desde autenticação tradicional até login social com OAuth 2.0.
 
