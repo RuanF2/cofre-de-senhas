@@ -144,4 +144,4 @@ Authorization: Bearer SEU_TOKEN_AQUI
 - Senhas guardadas no **cofre** são criptografadas com AES-256-GCM (reversível), pois o usuário precisa poder visualizá-las depois
 - A chave de criptografia (`CRYPTO_SECRET`) fica apenas no servidor, nunca no banco de dados
 
-Projeto desenvolvido como estudo prático de autenticação, segurança e integração back-end/front-end.
+Projeto desenvolvido como estudo prático de autenticação, segurança e integração back-end/front-end!
